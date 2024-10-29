@@ -9,7 +9,7 @@ import com.ngo.tomada_inteligente.model.DadosArduino;
 public class ArduinoServiceImpl implements ArduinoService {
 
     @Override
-    public void comunicacaoS(int porta) {
+    public String comunicacaoS(int porta) {
         //transforma a porta em serial port e abre ela
         SerialPort portS = SerialPort.getCommPorts()[porta];
         portS.openPort();
@@ -20,12 +20,16 @@ public class ArduinoServiceImpl implements ArduinoService {
             String valor = new String(buffer);
             System.out.println("Valor recebido do Arduino: " + valor);
 
-            enviar(valor); // Enviar o valor para a API
             portS.closePort();
+            return valor;
+            } else {
+            	return "Não foi possivel ler a porta";
             }
     }
-    private static void enviar(String valor) {
-        DadosArduino dados = new DadosArduino();
-        dados.setValor(valor);
+    
+    @Override
+    public String[] separarDados(String dados) {
+    	String [] dadosS = dados.split(";");
+    	return dadosS;
     }
 }

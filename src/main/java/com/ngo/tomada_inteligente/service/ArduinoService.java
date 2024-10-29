@@ -7,6 +7,7 @@ import com.ngo.tomada_inteligente.model.DadosArduino;
 @Service
 public interface ArduinoService {
 
-	void comunicacaoS(int porta);
+	String comunicacaoS(int porta);
+	String[] separarDados(String dados);
 
 }

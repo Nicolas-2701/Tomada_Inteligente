@@ -14,7 +14,7 @@ public class TomadaController {
 	
 	@GetMapping("/home")
 	public String home() {
-		arduino.comunicacaoS(0);
+		String [] dados = arduino.separarDados(arduino.comunicacaoS(0));//[0] = watts; [1] = volts que calculam a corrente(remover); [2] = corrente
 		return "home";
 	}
 
