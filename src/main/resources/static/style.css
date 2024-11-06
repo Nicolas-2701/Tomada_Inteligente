@@ -1,0 +1,175 @@
+:root {
+    font-size: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #1e1f28;
+    color: #f0f0f5;
+    min-height: 200vh;
+}
+
+a {
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 2.4rem;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+.logo {
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+    color: #c9c9d1;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    top: 0;
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+    align-items: center;
+    background: rgba(48, 51, 61, 0.8);
+    height: 12vh;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+}
+
+.nav-list li {
+    letter-spacing: 0.2rem;
+    margin-left: 7rem;
+}
+
+.retangulo,
+.retangulo2,
+.retangulo3 {
+    width: 25rem;
+    height: 25rem;
+    background: rgba(61, 61, 61, 0.9);
+    border-radius: 0.7rem;
+    position: fixed;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    animation: fadeIn 1s ease-in-out;
+    padding: 2rem;
+    color: #f0f0f5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: right;
+}
+
+.retangulo2__content,
+.retangulo3__content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+}
+
+.retangulo2__content h2,
+.retangulo3__content h2 {
+    font-size: 1.6rem;
+}
+
+.retangulo2__content p,
+.retangulo3__content p {
+    font-size: 1rem;
+}
+
+.retangulo_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.retangulo {
+    position: absolute;
+    overflow-y: scroll;
+    top: 25%;
+}
+
+.retangulo2 {
+    position: absolute;
+    top: 25%;
+    right: 5%;
+}
+
+.retangulo3 {
+    position: absolute;
+    top: 25%;
+    left: 5%;
+}
+
+.retangulo:hover,
+.retangulo2:hover,
+.retangulo3:hover {
+    transform: scale(1.05);
+    box-shadow: 0 1.2rem 3.5rem rgba(0, 0, 0, 0.4);
+}
+
+.tomadas {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.tomadas li {
+    margin: 1.2rem 0;
+}
+
+.tomadas button {
+    padding: 1rem;
+    border: 0.1rem solid #6e6e7a;
+    border-radius: 0.6rem;
+    width: 100%;
+    background-color: transparent;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    font-size: 1.8rem;
+    color: #d1d1e0;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.tomadas button:hover {
+    opacity: 0.8;
+    transform: translateY(-0.3rem);
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.background-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/src/main/resources/static/images/imagem-trabalho.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    filter: blur(0.6rem);
+    z-index: -1;
+}
