@@ -13,19 +13,26 @@ public class Tomada {
 	private double watts;
 	private double wh;//watt hora
 	private double gt;//gasto total = wh durante o tempo que a tomada está no banco de dados
-	
-	public Tomada(double watts, double wh, double gt) {
-		super();
-		this.watts = watts;
-		this.wh = wh;
-		this.gt = gt;
-	}
-	
+
 	public Tomada() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
+	public Tomada(int id, double watts, double wh, double gt) {
+		super();
+		this.id = id;
+		this.watts = watts;
+		this.wh = wh;
+		this.gt = gt;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public double getWatts() {
 		return watts;
 	}

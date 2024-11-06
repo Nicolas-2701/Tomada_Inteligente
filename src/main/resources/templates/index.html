@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/src/main/resources/static/style.css">
+    <link rel="stylesheet" href="/style.css">
     <title>Projeto</title>
 </head>
 <body>
@@ -23,22 +23,18 @@
         <div class="retangulo_container">
             <div class="retangulo">
                 <ul class="tomadas">
-                    <li><button>Tomada 1</button></li>
-                    <li><button>Tomada 2</button></li>
-                    <li><button>Tomada 2</button></li>
-                    <li><button>Tomada 2</button></li>
-                    <li><button>Tomada 2</button></li>
-                    <li><button>Tomada 2</button></li>
-                    <li><button>Tomada 2</button></li>
-                    <li><button>Tomada 2</button></li>
-                    <li><button>Tomada 2</button></li>
+                	<form th:each="tomada : ${tomadas}" th:action="@{/home/{id}(id=${tomada.id})}" method="get">
+                    <li ><button>Tomada <b th:text="${tomada.id}"></b></button></li>
+                	</form>
                 </ul>
             </div>
             
             <div class="retangulo2">
                 <div class="retangulo2__content">
                     <h2>Controle de tomadas</h2>
-                    <p>Controle suas tomadas de forma simples e eficaz</p>
+                    <p th:text="${tomadaS.watts}">Controle suas tomadas de forma simples e eficaz</p>
+                    <p th:text="${tomadaS.wh}">Controle suas tomadas de forma simples e eficaz</p>
+                    <p th:text="${tomadaS.gt}">Controle suas tomadas de forma simples e eficaz</p>
                 </div>
             </div>
             <div class="retangulo3">
