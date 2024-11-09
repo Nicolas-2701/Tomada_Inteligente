@@ -1,49 +1,48 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJETO NOME</title>
     <link rel="stylesheet" href="/style.css">
-    <title>Projeto</title>
 </head>
-<body>
 
+<body>
     <div class="background-layer"></div>
-    
-    <header>
-        <nav>
-            <a class="logo" href="">A logo</a>
-            <ul class="nav-list">
-                <li><a href="">Home</a></li>
-                <li><a href="">Sobre</a></li>
-                <li><a href="">Login</a></li>
-            </ul>
-        </nav>
-    </header>
-        <div class="retangulo_container">
-            <div class="retangulo">
-                <ul class="tomadas">
-                	<form th:each="tomada : ${tomadas}" th:action="@{/home/{id}(id=${tomada.id})}" method="get">
-                    <li ><button>Tomada <b th:text="${tomada.id}"></b></button></li>
-                	</form>
-                </ul>
-            </div>
-            
-            <div class="retangulo2">
-                <div class="retangulo2__content">
-                    <h2>Controle de tomadas</h2>
-                    <p th:text="${tomadaS.watts}">Controle suas tomadas de forma simples e eficaz</p>
-                    <p th:text="${tomadaS.wh}">Controle suas tomadas de forma simples e eficaz</p>
-                    <p th:text="${tomadaS.gt}">Controle suas tomadas de forma simples e eficaz</p>
-                </div>
-            </div>
-            <div class="retangulo3">
-                <div class="retangulo3__content">
-                    <h2>Controle de tomadas</h2>
-                    <p>Controle suas tomadas de forma simples e eficaz</p>
-                </div>
-            </div>
+
+    <div class="header">
+        <div class="header__logo">
+            <a href="#">A LOGO</a>
         </div>
-    <div style="height: 200vh;"></div>
+        <div class="header__menu">
+            <ul class="header__menu-list">
+                <li class="header__menu-item"><a href="#">Home</a></li>
+                <li class="header__menu-item"><a href="#">Sobre</a></li>
+                <li class="header__menu-item"><a href="#">Login</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="retangulo-container">
+        <div class="retangulo">
+            <h2>Controle de Tomadas</h2>
+            <p>Controle suas tomadas de forma simples e eficaz</p>
+        </div>
+        <div class="retangulo">
+            <ul class="retangulo__list">
+                <form th:each="tomada : ${tomadas}" th:action="@{/home/{id}(id=${tomada.id})}" method="get">
+                    <li class="retangulo__list-item"><button>Tomada <b th:text="${tomada.id}"></b></button></li>
+
+                </form>
+            </ul>
+        </div>
+        <div class="retangulo">
+            <h2>Controle de tomadas</h2>
+            <p><b>Watts:</b> <span th:text="${tomadaS.watts}">Erro 404</span></p>
+            <p><b>W/h:</b> <span th:text="${tomadaS.wh}">Erro 404</span></p>
+            <p><b>Gasto Total:</b> <span th:text="${tomadaS.gt}">Erro 404</span></p>
+        </div>
+    </div>
 </body>
 </html>

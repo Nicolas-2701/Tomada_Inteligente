@@ -1,175 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 :root {
-    font-size: 100%;
+    --header-background-color: rgba(42, 54, 63, 0.8);
+    --retangulo-background-color: rgba(68, 68, 68, .9);
+    --text-color_not-hover: rgba(220, 220, 220, .6);
+    --text-color_hover: rgba(255, 255, 255, 1);
+    --cards-text-color: rgba(240, 240, 245, .9);
+    font-size: 62.5%;
 }
 
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #1e1f28;
-    color: #f0f0f5;
-    min-height: 200vh;
-}
-
-a {
-    color: #e0e0e0;
-    text-decoration: none;
-    transition: 0.3s;
-    font-size: 2.4rem;
-}
-
-a:hover {
-    opacity: 0.7;
-}
-
-.logo {
-    font-size: 3rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5rem;
-    color: #c9c9d1;
-}
-
-nav {
-    display: flex;
-    justify-content: space-around;
-    top: 0;
-    width: 100%;
-    position: fixed;
-    z-index: 10;
-    align-items: center;
-    background: rgba(48, 51, 61, 0.8);
-    height: 12vh;
-}
-
-.nav-list {
-    list-style: none;
-    display: flex;
-}
-
-.nav-list li {
-    letter-spacing: 0.2rem;
-    margin-left: 7rem;
-}
-
-.retangulo,
-.retangulo2,
-.retangulo3 {
-    width: 25rem;
-    height: 25rem;
-    background: rgba(61, 61, 61, 0.9);
-    border-radius: 0.7rem;
-    position: fixed;
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    animation: fadeIn 1s ease-in-out;
-    padding: 2rem;
-    color: #f0f0f5;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-align: right;
-}
-
-.retangulo2__content,
-.retangulo3__content {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    gap: 2rem;
-}
-
-.retangulo2__content h2,
-.retangulo3__content h2 {
-    font-size: 1.6rem;
-}
-
-.retangulo2__content p,
-.retangulo3__content p {
-    font-size: 1rem;
-}
-
-.retangulo_container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.retangulo {
-    position: absolute;
-    overflow-y: scroll;
-    top: 25%;
-}
-
-.retangulo2 {
-    position: absolute;
-    top: 25%;
-    right: 5%;
-}
-
-.retangulo3 {
-    position: absolute;
-    top: 25%;
-    left: 5%;
-}
-
-.retangulo:hover,
-.retangulo2:hover,
-.retangulo3:hover {
-    transform: scale(1.05);
-    box-shadow: 0 1.2rem 3.5rem rgba(0, 0, 0, 0.4);
-}
-
-.tomadas {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-}
-
-.tomadas li {
-    margin: 1.2rem 0;
-}
-
-.tomadas button {
-    padding: 1rem;
-    border: 0.1rem solid #6e6e7a;
-    border-radius: 0.6rem;
-    width: 100%;
-    background-color: transparent;
-    text-align: center;
-    cursor: pointer;
-    border-radius: 0.5rem;
-    font-size: 1.8rem;
-    color: #d1d1e0;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.tomadas button:hover {
-    opacity: 0.8;
-    transform: translateY(-0.3rem);
-}
-
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
 }
 
 .background-layer {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('/src/main/resources/static/images/imagem-trabalho.jpg');
+    width: 100vw;
+    height: 100vh;
+    background-image: url('/images/imagem-trabalho.jpg');
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
-    filter: blur(0.6rem);
+    filter: blur(.8rem);
     z-index: -1;
+    transform: scale(1.2);
 }
+
+html, body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+
+
+/* Header CSS */
+
+.header {
+    background-color: var(--header-background-color);
+    width: 100vw;
+    height: 12vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20rem;
+    margin: 0 0 10rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header .header__logo a{
+    font-size: 5rem;
+    font-weight: 500;
+    color: var(--text-color_not-hover);
+    text-decoration: none;
+    transition: color .4s ease;
+}
+
+.header .header__logo a:hover {
+    color: var(--text-color_hover);
+    transition: color .4s ease;
+}
+
+.header .header__menu .header__menu-list {
+    display: flex;
+    list-style: none;
+    gap: 12rem;
+}
+
+.header .header__menu .header__menu-list a {
+    text-decoration: none;
+    font-size: 3.5rem;
+    color: var(--text-color_not-hover);
+    transition: color .4s ease;
+}
+
+.header .header__menu .header__menu-list a:hover {
+    color: var(--text-color_hover);
+    transition: color .4s ease;
+}
+
+
+
+/* Retângulo CSS */
+
+.retangulo-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 5rem;
+    padding: 2rem;
+}
+
+.retangulo-container .retangulo {
+    background-color: var(--retangulo-background-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 44rem;
+    max-height: 44rem;
+    width: 44rem;
+    height: 44rem;
+    border-radius: 1rem;
+    padding: 2rem;
+    transform: scale(1);
+    transition: transform .3s ease;
+    overflow-y: auto;
+}
+
+.retangulo-container .retangulo::-webkit-scrollbar {
+    width: .8rem;
+    height: .8rem;
+}
+
+.retangulo-container .retangulo::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, .3);
+    border-radius: .8rem;
+}
+
+.retangulo-container .retangulo::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.retangulo-container .retangulo:hover {
+    transform: scale(1.05);
+    transition: transform .3s ease;
+}
+
+.retangulo-container .retangulo h2{
+    color: var(--cards-text-color);
+    text-align: center;
+    margin: 0 0 1.5rem 0;
+    letter-spacing: .05rem;
+}
+.retangulo-container .retangulo p {
+    color: var(--cards-text-color);
+    text-align: center;
+}
+
+.retangulo .retangulo__list {
+    height: auto;
+}
+
+.retangulo .retangulo__list .retangulo__list-item {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 2rem 0;
+}
+
+.retangulo .retangulo__list .retangulo__list-item button{
+    background-color: transparent;
+    color: var(--cards-text-color);
+    font-size: 2.8rem;
+    border: none;
+    outline: none;
+    padding: 2rem;
+    cursor: pointer;
+    border: .1rem solid rgba(255, 255, 255, .3);
+    border-radius: .8rem;
+    transition: transform .15s ease, border .15s ease;
+}
+
+.retangulo .retangulo__list .retangulo__list-item button:hover {
+    transform: translateY(-.6rem);
+    border: .1rem solid rgba(255, 255, 255, 0.6);
+    transition: transform .15s ease, border .15s ease;
+}
+
+.retangulo

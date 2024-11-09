@@ -10,7 +10,6 @@ import com.ngo.tomada_inteligente.repository.TomadaRepository;
 
 @SpringBootApplication
 public class TomadaInteligenteApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(TomadaInteligenteApplication.class, args);
 	}
@@ -21,8 +20,14 @@ public class TomadaInteligenteApplication {
 			tRepo.save(new Tomada(1, 1.0, 2.0, 3.0));
 			tRepo.save(new Tomada(2, 2.0, 1.0, 3.0));
 			tRepo.save(new Tomada(3, 3.0, 2.0, 1.0));
+			tRepo.save(new Tomada(4, 3.0, 2.0, 1.0));
+			tRepo.save(new Tomada(5, 3.0, 2.0, 1.0));
+			tRepo.save(new Tomada(6, 3.0, 2.0, 1.0));
+			tRepo.save(new Tomada(7, 3.0, 2.0, 1.0));
+			tRepo.save(new Tomada(8, 3.0, 2.0, 1.0));
+			tRepo.save(new Tomada(9, 3.0, 2.0, 1.0));
+			tRepo.save(new Tomada(10, 3.0, 2.0, 1.0));
+			tRepo.save(new Tomada(11, 3.0, 2.0, 1.0));
 		};
-		
 	}
-
 }
