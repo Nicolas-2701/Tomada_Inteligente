@@ -175,4 +175,6 @@ html, body {
     transition: transform .15s ease, border .15s ease;
 }
 
-.retangulo
+.retangulo p {
+    font-size: 2.5rem;
+}

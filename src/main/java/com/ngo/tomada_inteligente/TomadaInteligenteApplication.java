@@ -24,10 +24,6 @@ public class TomadaInteligenteApplication {
 			tRepo.save(new Tomada(5, 3.0, 2.0, 1.0));
 			tRepo.save(new Tomada(6, 3.0, 2.0, 1.0));
 			tRepo.save(new Tomada(7, 3.0, 2.0, 1.0));
-			tRepo.save(new Tomada(8, 3.0, 2.0, 1.0));
-			tRepo.save(new Tomada(9, 3.0, 2.0, 1.0));
-			tRepo.save(new Tomada(10, 3.0, 2.0, 1.0));
-			tRepo.save(new Tomada(11, 3.0, 2.0, 1.0));
 		};
 	}
 }

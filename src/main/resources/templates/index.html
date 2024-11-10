@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PROJETO NOME</title>
+    <title>Home | SmartVolt</title>
     <link rel="stylesheet" href="/style.css">
 </head>
 
@@ -13,7 +13,7 @@
 
     <div class="header">
         <div class="header__logo">
-            <a href="#">A LOGO</a>
+            <a href="#">SmartVolt</a>
         </div>
         <div class="header__menu">
             <ul class="header__menu-list">
@@ -33,15 +33,15 @@
             <ul class="retangulo__list">
                 <form th:each="tomada : ${tomadas}" th:action="@{/home/{id}(id=${tomada.id})}" method="get">
                     <li class="retangulo__list-item"><button>Tomada <b th:text="${tomada.id}"></b></button></li>
-
                 </form>
             </ul>
         </div>
         <div class="retangulo">
             <h2>Controle de tomadas</h2>
+            <p><span>Tomada </span><b th:text="${tomadaS.id}"></b></p><br>
             <p><b>Watts:</b> <span th:text="${tomadaS.watts}">Erro 404</span></p>
             <p><b>W/h:</b> <span th:text="${tomadaS.wh}">Erro 404</span></p>
-            <p><b>Gasto Total:</b> <span th:text="${tomadaS.gt}">Erro 404</span></p>
+            <p><b>Gasto Total:</b> <span th:text="${tomadaS.Gt}">Erro 404</span></p>
         </div>
     </div>
 </body>
