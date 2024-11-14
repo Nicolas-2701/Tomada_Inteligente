@@ -9,39 +9,49 @@
 </head>
 
 <body>
-    <div class="background-layer"></div>
+    <div class="app-container">
+        <div class="header-container">
+            <div class="header__logo">
+                <a href="#">SmartVolt</a>
+            </div>
+            <div class="header__menu">
+                <ul class="header__menu-list">
+                    <li class="header__menu-item"><a href="#">Home</a></li>
+                    <li class="header__menu-item"><a href="#">Sobre</a></li>
+                    <li class="header__menu-item"><a href="#">Apresentação</a></li>
+                    <li class="header__menu-item"><a href="#">Seção</a></li>
+                </ul>
+            </div>
+            <div class="header__login">
+                <button class="header__login-button"><a href="#">Login</a></button>
+            </div>
+        </div>
 
-    <div class="header">
-        <div class="header__logo">
-            <a href="#">SmartVolt</a>
+        <div class="hero-container">
+            <h1 class="hero__title">Controle de Tomadas</h1>
+            <p class="hero__description">Controle suas tomadas de forma simples e eficaz</p>
         </div>
-        <div class="header__menu">
-            <ul class="header__menu-list">
-                <li class="header__menu-item"><a href="#">Home</a></li>
-                <li class="header__menu-item"><a href="#">Sobre</a></li>
-                <li class="header__menu-item"><a href="#">Login</a></li>
-            </ul>
-        </div>
-    </div>
 
-    <div class="retangulo-container">
-        <div class="retangulo">
-            <h2>Controle de Tomadas</h2>
-            <p>Controle suas tomadas de forma simples e eficaz</p>
-        </div>
-        <div class="retangulo">
-            <ul class="retangulo__list">
-                <form th:each="tomada : ${tomadas}" th:action="@{/home/{id}(id=${tomada.id})}" method="get">
-                    <li class="retangulo__list-item"><button>Tomada <b th:text="${tomada.id}"></b></button></li>
-                </form>
-            </ul>
-        </div>
-        <div class="retangulo">
-            <h2>Controle de tomadas</h2>
-            <p><span>Tomada </span><b th:text="${tomadaS.id}"></b></p><br>
-            <p><b>Watts:</b> <span th:text="${tomadaS.watts}">Erro 404</span></p>
-            <p><b>W/h:</b> <span th:text="${tomadaS.wh}">Erro 404</span></p>
-            <p><b>Gasto Total:</b> <span th:text="${tomadaS.Gt}">Erro 404</span></p>
+        <div class="card-container">
+            <div class="card">
+                <h2>Gasto Geral</h2>
+                <p><b>Watts:</b> 50</p>
+                <p><b>W/H:</b> 15.5</p>
+            </div>
+            <div class="card">
+                <ul class="card__list">
+                    <form th:each="tomada : ${tomadas}" th:action="@{/home/{id}(id=${tomada.id})}" method="get">
+                        <li class="card__list-item"><button>Tomada <b th:text="${tomada.id}"></b></button></li>
+                    </form>
+                </ul>
+            </div>
+            <div class="card">
+                <h2>Consumo Atual</h2>
+                <p><span>Tomada </span><b th:text="${tomadaS.id}"></b></p><br>
+                <p><b>Watts:</b> <span th:text="${tomadaS.watts}">Erro 404</span></p>
+                <p><b>W/H:</b> <span th:text="${tomadaS.wh}">Erro 404</span></p>
+                <p><b>Gasto Total:</b> <span th:text="${tomadaS.Gt}">Erro 404</span></p>
+            </div>
         </div>
     </div>
 </body>
