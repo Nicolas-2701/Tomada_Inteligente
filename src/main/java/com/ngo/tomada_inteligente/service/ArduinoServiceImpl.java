@@ -29,7 +29,7 @@ public class ArduinoServiceImpl implements ArduinoService {
     
     @Override
     public String[] separarDados(String dados) {
-    	String [] dadosS = dados.split(";");
+    	String [] dadosS = dados.split("|");
     	return dadosS;
     }
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.ngo.tomada_inteligente.model.Tomada;
 import com.ngo.tomada_inteligente.repository.TomadaRepository;
 import com.ngo.tomada_inteligente.service.ArduinoService;
+import com.ngo.tomada_inteligente.service.TomadaService;
 
 @Controller
 public class TomadaController {
@@ -21,12 +22,16 @@ public class TomadaController {
 	@Autowired
 	private ArduinoService arduino;
 	
+	@Autowired
+	private TomadaService tServ;
+	
 	@GetMapping("/home/{id}")
 	public String home(Model model, @PathVariable("id") int id) {
+		String [] dados = arduino.separarDados(arduino.comunicacaoS(0));
+		tServ.criandoTomadas(dados);
 		List<Tomada> tomadas =  tRepo.findAll();
 		model.addAttribute("tomadas", tomadas);
 		model.addAttribute("tomadaS", tRepo.findById(id));
-		//String [] dados = arduino.separarDados(arduino.comunicacaoS(0));//[0] = watts; [1] = volts que calculam a corrente(remover); [2] = corrente
 		return "index";
 	}
 
