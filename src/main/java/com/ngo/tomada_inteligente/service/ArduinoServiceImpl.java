@@ -10,26 +10,41 @@ public class ArduinoServiceImpl implements ArduinoService {
 
     @Override
     public String comunicacaoS(int porta) {
-        //transforma a porta em serial port e abre ela
         SerialPort portS = SerialPort.getCommPorts()[porta];
         portS.openPort();
-        if (portS.bytesAvailable() > 0) {
-            byte[] buffer = new byte[portS.bytesAvailable()];
-            portS.readBytes(buffer, buffer.length);
 
-            String valor = new String(buffer);
-            System.out.println("Valor recebido do Arduino: " + valor);
+        StringBuilder buffer = new StringBuilder();
+        long startTime = System.currentTimeMillis();
 
-            portS.closePort();
-            return valor;
-            } else {
-            	return "Não foi possivel ler a porta";
+        while (true) {
+            if (portS.bytesAvailable() > 0) {
+                byte[] tempBuffer = new byte[portS.bytesAvailable()];
+                portS.readBytes(tempBuffer, tempBuffer.length);
+                buffer.append(new String(tempBuffer));
+
+                // Verifica se o dado completo foi recebido
+                if (buffer.toString().contains("*")) {
+                    break;
+                }
             }
+
+            // Timeout para evitar travamento infinito
+            if (System.currentTimeMillis() - startTime > 5000) {
+            	System.out.println(buffer.toString());
+                portS.closePort();
+                return "Erro: Timeout ao ler a porta.";
+            }
+        }
+
+        portS.closePort();
+        String valor = buffer.toString().replace("*", ""); // Retorna apenas o dado antes do '|'
+        System.out.println("Valor recebido do Arduino: " + valor);
+        return valor;
     }
     
     @Override
     public String[] separarDados(String dados) {
-    	String [] dadosS = dados.split("|");
+    	String [] dadosS = dados.split("\\|");
     	return dadosS;
     }
 }

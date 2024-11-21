@@ -35,8 +35,9 @@
         <div class="card-container">
             <div class="card">
                 <h2>Gasto Geral</h2>
-                <p><b>Watts:</b> 50</p>
-                <p><b>W/H:</b> 15.5</p>
+                <p><b>Watts:</b > <span th:text="${tsW}">50</span></p>
+                <p><b>W/H:</b> <span th:text="${tsWh}">15.5</span></p>
+                <p><b>Gasto Total:</b> <span th:text="${tsGt}">15.5</span></p>
             </div>
             <div class="card">
                 <ul class="card__list">

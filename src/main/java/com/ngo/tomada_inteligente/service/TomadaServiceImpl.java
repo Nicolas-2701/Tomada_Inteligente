@@ -14,27 +14,29 @@ public class TomadaServiceImpl implements TomadaService {
 	
 	@Override
 	public void criandoTomadas(String [] dados) {
-		for(String v : dados) {
-			System.out.println(v+" teste");
-		}
 		for(String dadosS : dados) {
 			String [] linha = dadosS.split(";");
-			int id = Integer.parseInt(linha[0]);
+			try {
+				int id = Integer.parseInt(linha[0].replace("*", "").trim());
 			
-			try{
-				tRepo.findById(id);
-				//se a tomada não existir ele cria uma nova
-				tRepo.save(new Tomada(id, 
+				try{
+					tRepo.findById(id);
+					//	se a tomada não existir ele cria uma nova
+					tRepo.save(new Tomada(id, 
 						Double.parseDouble(linha[1]), 
 						Double.parseDouble(linha[2]), 
 						Double.parseDouble(linha[3])));
+				} catch (Exception e) {
+					System.out.println("CATCH\n"+e);
+					//se não, ele substitui os dados
+					Tomada tomada = tRepo.findById(id);
+					tomada.setWatts(Double.parseDouble(linha[1]));
+					tomada.setWh(Double.parseDouble(linha[2]));
+					tomada.setGt(Double.parseDouble(linha[3]));
+					tRepo.save(tomada);
+				}
 			} catch (Exception e) {
-				//se não, ele substitui os dados
-				Tomada tomada = tRepo.findById(id);
-				tomada.setWatts(Double.parseDouble(linha[1]));
-				tomada.setWh(Double.parseDouble(linha[2]));
-				tomada.setGt(Double.parseDouble(linha[3]));
-				tRepo.save(tomada);
+				// TODO: handle exception
 			}
 		}
 		

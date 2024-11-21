@@ -30,6 +30,12 @@ public class TomadaController {
 		String [] dados = arduino.separarDados(arduino.comunicacaoS(0));
 		tServ.criandoTomadas(dados);
 		List<Tomada> tomadas =  tRepo.findAll();
+		double tsGt = tomadas.stream().mapToDouble(Tomada::getGt).sum();//gasto total de todas as tomadas
+		double tsW = tomadas.stream().mapToDouble(Tomada::getWatts).sum();//watts de todas as tomadas
+		double tsWh = tomadas.stream().mapToDouble(Tomada::getWh).sum();//wh de todas as tomadas
+		model.addAttribute("tsGt", tsGt);
+		model.addAttribute("tsW", tsW);
+		model.addAttribute("tsWh", tsWh);
 		model.addAttribute("tomadas", tomadas);
 		model.addAttribute("tomadaS", tRepo.findById(id));
 		return "index";
