@@ -48,7 +48,7 @@ body {
 
 .header-container {
     width: 100vw;
-    height: 12vh;
+    height: 10vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -142,7 +142,7 @@ body {
 
 .card-container {
     margin: 0 auto;
-    padding: 2rem;
+    padding: 3.5rem 2rem;
     min-height: fit-content;
     width: 90vw;
     
