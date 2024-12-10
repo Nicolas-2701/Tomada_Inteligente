@@ -17,19 +17,19 @@ import com.ngo.tomada_inteligente.service.TomadaService;
 public class TomadaController {
 	
 	@Autowired
-	private TomadaRepository tRepo;
+	private TomadaRepository tomadaRepository;
 	
 	@Autowired
-	private ArduinoService arduino;
+	private ArduinoService arduinoService;
 	
 	@Autowired
-	private TomadaService tServ;
+	private TomadaService tomadaService;
 	
 	@GetMapping("/home/{id}")
 	public String home(Model model, @PathVariable("id") int id) {
-		String [] dados = arduino.separarDados(arduino.comunicacaoS(0));
-		tServ.criandoTomadas(dados);
-		List<Tomada> tomadas =  tRepo.findAll();
+		String [] dados = arduinoService.separarDados(arduinoService.comunicacaoS(0));
+		tomadaService.criandoTomadas(dados);
+		List<Tomada> tomadas =  tomadaRepository.findAll();
 		double tsGt = tomadas.stream().mapToDouble(Tomada::getGt).sum();//gasto total de todas as tomadas
 		double tsW = tomadas.stream().mapToDouble(Tomada::getWatts).sum();//watts de todas as tomadas
 		double tsWh = tomadas.stream().mapToDouble(Tomada::getWh).sum();//wh de todas as tomadas
@@ -37,7 +37,7 @@ public class TomadaController {
 		model.addAttribute("tsW", tsW);
 		model.addAttribute("tsWh", tsWh);
 		model.addAttribute("tomadas", tomadas);
-		model.addAttribute("tomadaS", tRepo.findById(id));
+		model.addAttribute("tomadaS", tomadaRepository.findById(id));
 		return "index";
 	}
 
