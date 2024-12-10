@@ -18,9 +18,9 @@ public class TomadaInteligenteApplication {
 	CommandLineRunner run(TomadaRepository tRepo) {
 		return args -> {
 			//usar para testes, caso precise testar a interface sem arduino
-//			tRepo.save(new Tomada(1, 1.0, 2.0, 3.0));
-//			tRepo.save(new Tomada(2, 2.0, 1.0, 3.0));
-//			tRepo.save(new Tomada(3, 3.0, 2.0, 1.0));
+			tRepo.save(new Tomada(1, 0.0, 0.0, 0.0, 0.0));
+			tRepo.save(new Tomada(2, 0.0, 0.0, 0.0, 0.0));
+			tRepo.save(new Tomada(3, 0.0, 0.0, 0.0, 0.0));
 //			tRepo.save(new Tomada(4, 3.0, 2.0, 1.0));
 //			tRepo.save(new Tomada(5, 3.0, 2.0, 1.0));
 //			tRepo.save(new Tomada(6, 3.0, 2.0, 1.0));
