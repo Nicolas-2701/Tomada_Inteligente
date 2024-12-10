@@ -25,7 +25,8 @@ public class TomadaServiceImpl implements TomadaService {
 					tRepo.save(new Tomada(id, 
 						Double.parseDouble(linha[1]), 
 						Double.parseDouble(linha[2]), 
-						Double.parseDouble(linha[3])));
+						Double.parseDouble(linha[3]),
+						Double.parseDouble(linha[4])));
 				} catch (Exception e) {
 					System.out.println("CATCH\n"+e);
 					//se não, ele substitui os dados
@@ -33,6 +34,7 @@ public class TomadaServiceImpl implements TomadaService {
 					tomada.setWatts(Double.parseDouble(linha[1]));
 					tomada.setWh(Double.parseDouble(linha[2]));
 					tomada.setGt(Double.parseDouble(linha[3]));
+					tomada.setGr(Double.parseDouble(linha[4]));
 					tRepo.save(tomada);
 				}
 			} catch (Exception e) {

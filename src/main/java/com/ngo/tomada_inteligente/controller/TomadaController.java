@@ -33,9 +33,11 @@ public class TomadaController {
 		double tsGt = tomadas.stream().mapToDouble(Tomada::getGt).sum();//gasto total de todas as tomadas
 		double tsW = tomadas.stream().mapToDouble(Tomada::getWatts).sum();//watts de todas as tomadas
 		double tsWh = tomadas.stream().mapToDouble(Tomada::getWh).sum();//wh de todas as tomadas
+		double tsGr = tomadas.stream().mapToDouble(Tomada::getGr).sum();//gr de todas as tomadas
 		model.addAttribute("tsGt", tsGt);
 		model.addAttribute("tsW", tsW);
 		model.addAttribute("tsWh", tsWh);
+		model.addAttribute("tsGr", tsGr);
 		model.addAttribute("tomadas", tomadas);
 		model.addAttribute("tomadaS", tomadaRepository.findById(id));
 		return "index";
