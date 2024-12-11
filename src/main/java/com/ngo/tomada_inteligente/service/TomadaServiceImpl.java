@@ -1,5 +1,7 @@
 package com.ngo.tomada_inteligente.service;
 
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,8 @@ public class TomadaServiceImpl implements TomadaService {
 	public void criandoTomadas(String [] dados) {
 		for(String dadosS : dados) {
 			String [] linha = dadosS.split(";");
+			System.out.print("LINHA:");
+			System.out.println(Arrays.toString(linha));
 			try {
 				int id = Integer.parseInt(linha[0].replace("*", "").trim());
 			

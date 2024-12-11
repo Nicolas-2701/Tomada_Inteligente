@@ -11,6 +11,7 @@ public class ArduinoServiceImpl implements ArduinoService {
     @Override
     public String comunicacaoS(int porta) {
         SerialPort portS = SerialPort.getCommPorts()[porta];
+        portS.setBaudRate(9600);
         portS.openPort();
 
         StringBuilder buffer = new StringBuilder();
