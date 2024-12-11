@@ -38,7 +38,7 @@ public class ArduinoServiceImpl implements ArduinoService {
         }
 
         portS.closePort();
-        String valor = buffer.toString().replace("*", ""); // Retorna apenas o dado antes do '|'
+        String valor = buffer.toString().replace("*", "").replace("\n", ""); // Retorna apenas o dado antes do '|'
         System.out.println("Valor recebido do Arduino: " + valor);
         return valor;
     }
